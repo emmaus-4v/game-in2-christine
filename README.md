@@ -17,8 +17,8 @@ Basis: uitleg, spelen, afgaan en punten
 - [ ] uitlegscherm
 
 Uitbreiding: *bedenk iets, bijvoorbeeld meer tegenstanders*
-- [ ] *later uitwerken*
-- [ ] *later uitwerken*
+- [ ] *verschillende blokjes*
+- [ ] *blokjes kleurtjes geven*
 - [ ] *later uitwerken*
 
 Uitbreiding: *bedenk iets, bijvoorbeeld bewegende achtergrond*
