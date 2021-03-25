@@ -11,7 +11,7 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
 - [ ] teken blokje
 - [ ] beweeg blokje
-- [ ] ... *(vul zelf aan)*
+- [ ] game over
 - [ ] punten op scherm zetten
 - [ ] punten kunnen scoren
 - [ ] uitlegscherm
