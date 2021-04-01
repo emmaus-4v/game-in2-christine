@@ -10,7 +10,7 @@ Gemaakt door:
 Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
 - [x] teken blokje
-- [ ] beweeg blokje
+- [x] beweeg blokje
 - [ ] game over
 - [ ] punten op scherm zetten
 - [ ] punten kunnen scoren

@@ -106,8 +106,7 @@ var beweegKogel = function() {
  */
 var beweegSpeler = function() {
 if(mouseIsPressed) {
-x=x+5;
-}
+spelerY+=10; }
 };
 
 
