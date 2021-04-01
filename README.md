@@ -9,7 +9,7 @@ Gemaakt door:
 
 Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
-- [ ] teken blokje
+- [x] teken blokje
 - [ ] beweeg blokje
 - [ ] game over
 - [ ] punten op scherm zetten
