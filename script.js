@@ -22,6 +22,8 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
+var KEY_LEFT = 37;
+
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
 
@@ -105,8 +107,13 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function() {
-if(mouseIsPressed) {
-spelerY+=10; }
+    spelerY = spelerY + 10;
+    if (spelerY > 400) {
+        spelerY = 0;
+    }
+    if (keyIsDown(KEY_LEFT)){
+        spelerX = spelerX-100;
+    }
 };
 
 
@@ -115,7 +122,8 @@ spelerY+=10; }
  * @returns {boolean} true als vijand is geraakt
  */
 var checkVijandGeraakt = function() {
-
+// check ofdat het blikje over een ander blokje zit 
+// en als dat zo is dan return true;
   return false;
 };
 
