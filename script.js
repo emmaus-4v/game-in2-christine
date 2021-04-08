@@ -110,7 +110,7 @@ var beweegKogel = function() {
 var beweegSpeler = function() {
     spelerY = spelerY + 10;
     if (spelerY > 600) {
-        spelerY = 0;
+        spelerY = 20;
     }
     if (keyIsDown(KEY_LEFT)){
         spelerX = spelerX-50;
