@@ -23,6 +23,7 @@ const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
 var KEY_LEFT = 37;
+var KEY_RIGHT = 39;
 
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
@@ -108,10 +109,13 @@ var beweegKogel = function() {
  */
 var beweegSpeler = function() {
     spelerY = spelerY + 10;
-    if (spelerY > 400) {
+    if (spelerY > 600) {
         spelerY = 0;
     }
     if (keyIsDown(KEY_LEFT)){
+        spelerX = spelerX-100;
+    }
+    if (keyIsDown(KEY_RIGHT)) {
         spelerX = spelerX-100;
     }
 };
