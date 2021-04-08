@@ -113,10 +113,10 @@ var beweegSpeler = function() {
         spelerY = 0;
     }
     if (keyIsDown(KEY_LEFT)){
-        spelerX = spelerX-100;
+        spelerX = spelerX-50;
     }
     if (keyIsDown(KEY_RIGHT)) {
-        spelerX = spelerX-100;
+        spelerX = spelerX-50;
     }
 };
 
