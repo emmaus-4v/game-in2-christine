@@ -24,6 +24,7 @@ var spelStatus = SPELEN;
 
 var KEY_LEFT = 37;
 var KEY_RIGHT = 39;
+var KEY_DOWN = 40;
 
 var spelerX = 575; // x-positie van speler
 var spelerY = 20; // y-positie van speler
@@ -118,6 +119,10 @@ var beweegSpeler = function() {
     if (keyIsDown(KEY_RIGHT)) {
         spelerX = spelerX+10;
     }
+    if (keyIsDown(KEY_DOWN)){
+        spelerY = spelerY+10;
+    }
+
 };
 
 
