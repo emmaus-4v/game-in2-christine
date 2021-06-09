@@ -113,6 +113,12 @@ var beweegSpeler = function() {
     if (spelerY > 600) {
         spelerY = 600;
     }
+    if(spelerX < 28){
+        spelerX = 28;
+    }
+    if (spelerX > 1150) {
+        spelerX = 1150;
+    }
     if (keyIsDown(KEY_LEFT)){
         spelerX = spelerX-10;
     }
