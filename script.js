@@ -25,6 +25,7 @@ var spelStatus = UITLEG;
 var KEY_LEFT = 37;
 var KEY_RIGHT = 39;
 var KEY_DOWN = 40;
+var ENTER = 13; 
 
 var spelerX = 590; // x-positie van speler
 var spelerY = 20; // y-positie van speler
@@ -32,8 +33,8 @@ var spelerY = 20; // y-positie van speler
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var vijandX = 0;   // x-positie van vijand
-var vijandY = 0;   // y-positie van vijand
+var vijandX = 20;   // x-positie van vijand
+var vijandY = 600;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
@@ -56,11 +57,9 @@ var tekenVeld = function () {
   
 };
 
-function draw() {
-    switch (spelStatus) {
-        
-    }
-}
+
+
+
 /**
  * Tekent de vijand
  * @param {number} x x-coördinaat
@@ -100,7 +99,7 @@ var tekenKogel = function(x, y) {
  */
 var tekenSpeler = function(x, y) {
   fill("yellow");
-  rect(x, y, 100, 100);
+  rect(spelerX, spelerY, 100, 100);
 };
 
 
@@ -125,7 +124,7 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function() {
-    spelerY = spelerY + 5;
+    spelerY = spelerY + 3
     if (spelerY > 600) {
         spelerY = 600;
     }
@@ -195,7 +194,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background(100,0,250);
+  background(50,100,255);
 }
 
 
@@ -206,10 +205,27 @@ function setup() {
  */
 function draw() {
   switch (spelStatus) {
+    case UITLEG:
+         background("purple");
+         textSize (30);
+         fill("white");
+         text("UITLEG",560,50,200,200)
+         text("Gebruik de pijltjes om in de gaten te vallen", 290,300,700,500)
+             text("Klik op enter om te starten",400,500,500,500)
+             
+             if (keyIsDown(ENTER)){
+                 spelStatus = SPELEN
+             }
+
+             break;
+
     case SPELEN:
+
+     
       beweegVijand();
       beweegKogel();
       beweegSpeler();
+
       
       if (checkVijandGeraakt()) {
         // punten erbij
