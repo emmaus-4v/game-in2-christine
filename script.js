@@ -55,10 +55,6 @@ var tekenVeld = function () {
   rect(20, 20, width - 2 * 20, height - 2 * 20);
   
 };
-var tekenGrond = function () {
-    fill(0,0,0);
-    rect(100, 600, 150, 200);
-};
 
 /**
  * Tekent de vijand
@@ -66,7 +62,8 @@ var tekenGrond = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {
-    
+   fill(0,0,0);
+    rect(100, 600, 150, 200); 
 
 };
 
