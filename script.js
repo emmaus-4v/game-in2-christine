@@ -49,17 +49,16 @@ var score = 0; // aantal behaalde punten
 /**
  * Tekent het speelveld
  */
-var grond = function (x,y) {
-    fill(0,0,0)
-    rect(100, 600, 150, 200);
-};
 
 var tekenVeld = function () {
   fill(50,100,255);
   rect(20, 20, width - 2 * 20, height - 2 * 20);
   
 };
-
+var tekenGrond = function () {
+    fill(0,0,0);
+    rect(100, 600, 150, 200);
+};
 
 /**
  * Tekent de vijand
