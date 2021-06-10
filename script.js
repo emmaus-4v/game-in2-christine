@@ -20,13 +20,13 @@
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = SPELEN;
+var spelStatus = UITLEG;
 
 var KEY_LEFT = 37;
 var KEY_RIGHT = 39;
 var KEY_DOWN = 40;
 
-var spelerX = 575; // x-positie van speler
+var spelerX = 590; // x-positie van speler
 var spelerY = 20; // y-positie van speler
 
 var kogelX = 0;    // x-positie van kogel
@@ -56,6 +56,11 @@ var tekenVeld = function () {
   
 };
 
+function draw() {
+    switch (spelStatus) {
+        
+    }
+}
 /**
  * Tekent de vijand
  * @param {number} x x-coördinaat
@@ -66,13 +71,13 @@ var tekenVijand = function(x, y) {
     rect(20, 600, 205, 100); 
 
     fill(0,0,0);
-    rect(385, 600, 205, 100);
+    rect(375, 600, 205, 100);
 
     fill(0,0,0);
-    rect(720, 600, 205, 100);
+    rect(700, 600, 205, 100);
 
     fill(0,0,0);
-    rect(1045, 600, 205, 100);
+    rect(1055, 600, 205, 100);
 
 };
 
@@ -124,11 +129,11 @@ var beweegSpeler = function() {
     if (spelerY > 600) {
         spelerY = 600;
     }
-    if(spelerX < 28){
-        spelerX = 28;
+    if(spelerX < 20){
+        spelerX = 20;
     }
-    if (spelerX > 1150) {
-        spelerX = 1150;
+    if (spelerX > 1160) {
+        spelerX = 1160;
     }
     if (keyIsDown(KEY_LEFT)){
         spelerX = spelerX-10;
@@ -150,6 +155,11 @@ var beweegSpeler = function() {
 var checkVijandGeraakt = function() {
 // check ofdat het blikje over een ander blokje zit 
 // en als dat zo is dan return true;
+    if (beweegSpeler > tekenVijand){
+        spelerX = 590;
+        spelerY = 20;
+    }
+    
   return false;
 };
 
