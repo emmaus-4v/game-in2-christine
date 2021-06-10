@@ -63,16 +63,16 @@ var tekenVeld = function () {
  */
 var tekenVijand = function(x, y) {
     fill(0,0,0);
-    rect(100, 600, 150, 100); 
+    rect(20, 600, 205, 100); 
 
     fill(0,0,0);
-    rect(400, 600, 300, 100);
+    rect(385, 600, 205, 100);
 
     fill(0,0,0);
-    rect(400, 600, 300, 100);
+    rect(720, 600, 205, 100);
 
     fill(0,0,0);
-    rect(400, 600, 300, 100);
+    rect(1045, 600, 205, 100);
 
 };
 
