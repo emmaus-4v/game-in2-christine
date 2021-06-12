@@ -70,10 +70,10 @@ var tekenVijand = function(x, y) {
     rect(20, 600, 205, 100); 
 
     fill(0,0,0);
-    rect(375, 600, 205, 100);
+    rect(385, 600, 205, 100);
 
     fill(0,0,0);
-    rect(700, 600, 205, 100);
+    rect(730, 600, 205, 100);
 
     fill(0,0,0);
     rect(1055, 600, 205, 100);
@@ -152,11 +152,11 @@ var beweegSpeler = function() {
  * @returns {boolean} true als vijand is geraakt
  */
 var checkVijandGeraakt = function() {
-// check ofdat het blikje over een ander blokje zit 
+// check ofdat het blokje over een ander blokje zit 
 // en als dat zo is dan return true;
-    if (beweegSpeler > tekenVijand){
-        spelerX = 590;
-        spelerY = 20;
+    if (spelerX > 205 && spelerY > 100){
+        fill(255, 0, 0);
+        rect(20, 600, 205, 100);
     }
     
   return false;
