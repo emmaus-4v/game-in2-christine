@@ -52,7 +52,7 @@ var score = 0; // aantal behaalde punten
  */
 
 var tekenVeld = function () {
-  fill(50,100,255);
+  fill(150,100,255);
   rect(20, 20, width - 2 * 20, height - 2 * 20);
   
 };
@@ -98,7 +98,7 @@ var tekenKogel = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {
-  fill("yellow");
+  fill(253, 253, 150);
   rect(spelerX, spelerY, 100, 100);
 };
 
@@ -151,10 +151,10 @@ var beweegSpeler = function() {
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-var checkVijandGeraakt = function(x, y) {
+var checkVijandGeraakt = function() {
 // check ofdat het blokje over een ander blokje zit 
 // en als dat zo is dan return true;
-    if (spelerX > 205 && spelerY < 100){
+    if (tekenSpeler && spelerX > 20 && spelerX < 225 && spelerY > 600 && spelerY < 700){
         fill(255, 0, 0);
         rect(20, 600, 205, 100);
     }
