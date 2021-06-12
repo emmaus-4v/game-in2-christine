@@ -123,7 +123,7 @@ var beweegKogel = function() {
  * Kijkt wat de toetsen/muis etc zijn.
  * Updatet globale variabele spelerX en spelerY
  */
-var beweegSpeler = function() {
+var beweegSpeler = function(x, y) {
     spelerY = spelerY + 3
     if (spelerY > 600) {
         spelerY = 600;
@@ -154,11 +154,12 @@ var beweegSpeler = function() {
 var checkVijandGeraakt = function() {
 // check ofdat het blokje over een ander blokje zit 
 // en als dat zo is dan return true;
-    if (tekenSpeler && spelerX > 20 && spelerX < 225 && spelerY > 600 && spelerY < 700){
+    if (beweegSpeler === tekenVijand){
         fill(255, 0, 0);
-        rect(20, 600, 205, 100);
+        tekenVijand;
     }
     
+
   return false;
 };
 
