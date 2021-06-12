@@ -151,10 +151,10 @@ var beweegSpeler = function() {
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-var checkVijandGeraakt = function() {
+var checkVijandGeraakt = function(x, y) {
 // check ofdat het blokje over een ander blokje zit 
 // en als dat zo is dan return true;
-    if (spelerX > 205 && spelerY > 100){
+    if (spelerX > 205 && spelerY < 100){
         fill(255, 0, 0);
         rect(20, 600, 205, 100);
     }
