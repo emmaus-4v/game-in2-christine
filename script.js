@@ -158,8 +158,8 @@ var beweegSpeler = function(x, y) {
  */
 var checkVijandGeraakt1 = function() {
 // check ofdat het blokje over een ander blokje zit 
-// en als dat zo is dan return true;
-        if (spelerY == vijandY && spelerX <= 225) {
+// en als dat zo is dan return true
+    if (spelerY == vijandY && spelerX <= 225){
         spelerX = 590; 
         spelerY = 20;
         leven = leven-1;
