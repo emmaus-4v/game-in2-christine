@@ -200,6 +200,7 @@ var checkSpelerGeraakt = function() {
     
   return false;
 };
+// Zoekt de score uit 
 var checkScore1 = function() {
     if (spelerY == vijandY && spelerX >= 235 && spelerX <= 285) {
     spelerX = 590;
@@ -222,7 +223,7 @@ var checkScore3 = function() {
     if (spelerY == vijandY && spelerX >= 935 && spelerX <= 945) {
     spelerX = 590;
     spelerY = 20;
-    score = score + 100;
+    score = score + 200;
     }
     return false;
 };
@@ -267,8 +268,8 @@ function draw() {
          textSize (30);
          fill("white");
          text("UITLEG",575,50,200,200)
-         text("Gebruik de pijltjes om in de gaten te vallen", 300,300,700,500)
-             text("Klik op enter om te starten",400,500,500,500)
+         text("Gebruik de pijltjes om in de gaten te vallen", 320,300,700,500)
+         text("Klik op enter om te starten",450,500,500,500)
              
              if (keyIsDown(ENTER)){
                  spelStatus = SPELEN
@@ -327,9 +328,9 @@ function draw() {
         textSize(30)
         background("purple");
         fill("white");
-        text("GAME OVER!", 420, 300, 500, 500)
-        text("Je score is:" + score, 400, 400, 500, 500)
-        text("Klik op enter om terug naar het uitlegscherm te gaan", 420, 500, 500, 500)
+        text("GAME OVER!", 580, 50, 500, 500)
+        text("Je score is:" + score, 580, 300, 500, 500)
+        text("Klik op enter om terug naar het uitlegscherm te gaan", 300, 500, 1000, 1000)
 
         if (keyIsDown(ENTER)) {
             spelStatus = UITLEG
