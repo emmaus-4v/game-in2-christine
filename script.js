@@ -37,7 +37,7 @@ var kogelY = 0;    // y-positie van kogel
 
 var vijandX = 20;   // x-positie van vijand
 var vijandY = 600;   // y-positie van vijand
-var vijandXGrootte = 205; // x-grootte van vijand
+var vijandXGrootte = 215; // x-grootte van vijand
 var vijandYGrootte = 100; // y-groote van vijand
 
 var score = 0; // aantal behaalde punten
@@ -80,8 +80,8 @@ var tekenVijand = function(x, y) {
     fill(0,0,0);
     rect(vijandX, vijandY, vijandXGrootte, vijandYGrootte ); 
     rect(vijandX + 365, vijandY, vijandXGrootte, vijandYGrootte);
-    rect(vijandX + 710, vijandY, vijandXGrootte, vijandYGrootte);
-    rect(vijandX + 1035, vijandY, vijandXGrootte, vijandYGrootte);
+    rect(vijandX + 700, vijandY, vijandXGrootte, vijandYGrootte);
+    rect(vijandX + 1025, vijandY, vijandXGrootte, vijandYGrootte);
 
 };
 
@@ -159,7 +159,7 @@ var beweegSpeler = function(x, y) {
 var checkVijandGeraakt1 = function() {
 // check ofdat het blokje over een ander blokje zit 
 // en als dat zo is dan return true
-    if (spelerY == vijandY && spelerX <= 225){
+    if (spelerY == vijandY && spelerX <= 235){
         spelerX = 590; 
         spelerY = 20;
         leven = leven-1;
@@ -168,7 +168,7 @@ var checkVijandGeraakt1 = function() {
     return false;
 };
 var checkVijandGeraakt2 = function() {
-    if (spelerY == vijandY && spelerX >= 385 && spelerX <= 590) {
+    if (spelerY == vijandY && spelerX >= 385 && spelerX <= 600) {
     spelerX = 590;
     spelerY = 20;
     leven = leven-1;
@@ -176,7 +176,7 @@ var checkVijandGeraakt2 = function() {
     return false;
 };
 var checkVijandGeraakt3 = function() {
-    if (spelerY == vijandY && spelerX >= 730 && spelerX <= 935) {
+    if (spelerY == vijandY && spelerX >= 720 && spelerX <= 935) {
     spelerX = 590;
     spelerY = 20;
     leven = leven-1;
@@ -184,7 +184,7 @@ var checkVijandGeraakt3 = function() {
     return false;
 };
 var checkVijandGeraakt4 = function() {
-    if (spelerY == vijandY && spelerX >= 1055 && spelerX <= 1260) {
+    if (spelerY == vijandY && spelerX >= 1045 && spelerX <= 1160) {
     spelerX = 590;
     spelerY = 20;
     leven = leven-1;
@@ -200,8 +200,32 @@ var checkSpelerGeraakt = function() {
     
   return false;
 };
+var checkScore1 = function() {
+    if (spelerY == vijandY && spelerX >= 235 && spelerX <= 285) {
+    spelerX = 590;
+    spelerY = 20;
+    score = score + 50;
+    }
+    return false;
+};
 
+var checkScore2 = function() {
+    if (spelerY == vijandY && spelerX >= 600 && spelerX <= 620){
+    spelerX = 590;
+    spelerY = 20;
+    score = score + 100;
+    }
+    return false;
+};
 
+var checkScore3 = function() {
+    if (spelerY == vijandY && spelerX >= 935 && spelerX <= 945) {
+    spelerX = 590;
+    spelerY = 20;
+    score = score + 100;
+    }
+    return false;
+};
 /**
  * Zoekt uit of het spel is afgelopen
  * @returns {boolean} true als het spel is afgelopen
@@ -276,6 +300,18 @@ function draw() {
       if (checkSpelerGeraakt()) {
         // leven eraf of gezondheid verlagen
         // eventueel: nieuwe speler maken
+      }
+
+      if (checkScore1()) {
+
+      }
+
+      if (checkScore2()) {
+
+      }
+
+      if (checkScore3()) {
+
       }
 
       tekenVeld();
