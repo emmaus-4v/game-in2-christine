@@ -27,8 +27,8 @@ var KEY_RIGHT = 39; // pijltje naar recht
 var KEY_DOWN = 40; // pijltje naar beneden
 var ENTER = 13; // toets enter
 
-var speler = 0;
-var spelerX = 575; // x-positie van speler
+var spelerX1 = 0; // random x-positie begin van speler
+var spelerX = 600; // x-positie van speler
 var spelerY = 20; // y-positie van speler
 var spelerGrootte = 100; // groote van speler
 
@@ -41,6 +41,7 @@ var vijandXGrootte = 205; // x-grootte van vijand
 var vijandYGrootte = 100; // y-groote van vijand
 
 var score = 0; // aantal behaalde punten
+var leven = 3; // aantal levens
 var bgImg;
 
 
@@ -57,8 +58,14 @@ var bgImg;
  */
 
 var tekenVeld = function () {
-  fill(150,100,255);
+  background("purple");
+  fill(50,100, 255);
   rect(20, 20, width - 2 * 20, height - 2 * 20);
+  fill("white");
+  textSize(30);
+  text("score "+ score, 100, 100, 200, 100)
+  text("levens "+leven, 1100,100,200,200)
+  
 };
 
 
@@ -122,7 +129,7 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function(x, y) {
-    spelerY = spelerY + 3
+    spelerY = spelerY + 3;
     if (spelerY > 600) {
         spelerY = 600;
     }
@@ -149,17 +156,41 @@ var beweegSpeler = function(x, y) {
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-var checkVijandGeraakt = function() {
+var checkVijandGeraakt1 = function() {
 // check ofdat het blokje over een ander blokje zit 
 // en als dat zo is dan return true;
-    if (spelerX && spelerY < vijandX && vijandY){
+        if (spelerY == vijandY && spelerX <= 225) {
         spelerX = 590; 
         spelerY = 20;
+        leven = leven-1;
+        
     }
     return false;
 };
-
-
+var checkVijandGeraakt2 = function() {
+    if (spelerY == vijandY && spelerX >= 385 && spelerX <= 590) {
+    spelerX = 590;
+    spelerY = 20;
+    leven = leven-1;
+    }
+    return false;
+};
+var checkVijandGeraakt3 = function() {
+    if (spelerY == vijandY && spelerX >= 730 && spelerX <= 935) {
+    spelerX = 590;
+    spelerY = 20;
+    leven = leven-1;
+    }
+    return false;
+};
+var checkVijandGeraakt4 = function() {
+    if (spelerY == vijandY && spelerX >= 1055 && spelerX <= 1260) {
+    spelerX = 590;
+    spelerY = 20;
+    leven = leven-1;
+    }
+    return false;
+};
 /**
  * Zoekt uit of de speler is geraakt
  * bijvoorbeeld door botsing met vijand
@@ -176,6 +207,10 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
+    if (leven <= 0) {
+        return true;
+    }
+
 
     
   return false;
@@ -204,7 +239,7 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case UITLEG:
-         background("purple");
+        background("purple");
          textSize (30);
          fill("white");
          text("UITLEG",575,50,200,200)
@@ -219,16 +254,25 @@ function draw() {
 
     case SPELEN:
 
+      
       beweegVijand();
       beweegKogel();
       beweegSpeler();
 
       
-      if (checkVijandGeraakt()) {
+      if (checkVijandGeraakt1()) {
         // punten erbij
         // nieuwe vijand maken
       }
-      
+      if (checkVijandGeraakt2()) {
+
+      }
+      if (checkVijandGeraakt3()) {
+
+      }
+      if (checkVijandGeraakt4()) {
+
+      }
       if (checkSpelerGeraakt()) {
         // leven eraf of gezondheid verlagen
         // eventueel: nieuwe speler maken
@@ -248,12 +292,13 @@ function draw() {
         background("purple");
         fill("white");
         text("GAME OVER!", 420, 300, 500, 500)
-        text("Je score is:" + score, 420, 300, 500, 500)
+        text("Je score is:" + score, 400, 400, 500, 500)
         text("Klik op enter om terug naar het uitlegscherm te gaan", 420, 500, 500, 500)
 
         if (keyIsDown(ENTER)) {
             spelStatus = UITLEG
             score = 0
+            leven = 3
         }
         break;
   }
