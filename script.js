@@ -154,13 +154,11 @@ var beweegSpeler = function(x, y) {
 var checkVijandGeraakt = function() {
 // check ofdat het blokje over een ander blokje zit 
 // en als dat zo is dan return true;
-    if (beweegSpeler === tekenVijand){
+    if (beweegSpeler && spelerX < 20 && spelerY < 600){
         fill(255, 0, 0);
-        tekenVijand;
+        rect(20, 600, 205, 100);
     }
-    
-
-  return false;
+    return false;
 };
 
 
