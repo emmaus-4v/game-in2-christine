@@ -22,21 +22,26 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = UITLEG;
 
-var KEY_LEFT = 37;
-var KEY_RIGHT = 39;
-var KEY_DOWN = 40;
-var ENTER = 13; 
+var KEY_LEFT = 37; // pijltje naar links
+var KEY_RIGHT = 39; // pijltje naar recht
+var KEY_DOWN = 40; // pijltje naar beneden
+var ENTER = 13; // toets enter
 
-var spelerX = 590; // x-positie van speler
+var speler = 0;
+var spelerX = 575; // x-positie van speler
 var spelerY = 20; // y-positie van speler
+var spelerGrootte = 100; // groote van speler
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
 var vijandX = 20;   // x-positie van vijand
 var vijandY = 600;   // y-positie van vijand
+var vijandXGrootte = 205; // x-grootte van vijand
+var vijandYGrootte = 100; // y-groote van vijand
 
 var score = 0; // aantal behaalde punten
+var bgImg;
 
 
 
@@ -54,7 +59,6 @@ var score = 0; // aantal behaalde punten
 var tekenVeld = function () {
   fill(150,100,255);
   rect(20, 20, width - 2 * 20, height - 2 * 20);
-  
 };
 
 
@@ -67,16 +71,10 @@ var tekenVeld = function () {
  */
 var tekenVijand = function(x, y) {
     fill(0,0,0);
-    rect(20, 600, 205, 100); 
-
-    fill(0,0,0);
-    rect(385, 600, 205, 100);
-
-    fill(0,0,0);
-    rect(730, 600, 205, 100);
-
-    fill(0,0,0);
-    rect(1055, 600, 205, 100);
+    rect(vijandX, vijandY, vijandXGrootte, vijandYGrootte ); 
+    rect(vijandX + 365, vijandY, vijandXGrootte, vijandYGrootte);
+    rect(vijandX + 710, vijandY, vijandXGrootte, vijandYGrootte);
+    rect(vijandX + 1035, vijandY, vijandXGrootte, vijandYGrootte);
 
 };
 
@@ -99,7 +97,7 @@ var tekenKogel = function(x, y) {
  */
 var tekenSpeler = function(x, y) {
   fill(253, 253, 150);
-  rect(spelerX, spelerY, 100, 100);
+  rect(spelerX, spelerY, spelerGrootte, spelerGrootte);
 };
 
 
@@ -154,9 +152,9 @@ var beweegSpeler = function(x, y) {
 var checkVijandGeraakt = function() {
 // check ofdat het blokje over een ander blokje zit 
 // en als dat zo is dan return true;
-    if (beweegSpeler && spelerX < 20 && spelerY < 600){
-        fill(255, 0, 0);
-        rect(20, 600, 205, 100);
+    if (spelerX && spelerY < vijandX && vijandY){
+        spelerX = 590; 
+        spelerY = 20;
     }
     return false;
 };
@@ -178,6 +176,7 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
+
     
   return false;
 };
@@ -208,8 +207,8 @@ function draw() {
          background("purple");
          textSize (30);
          fill("white");
-         text("UITLEG",560,50,200,200)
-         text("Gebruik de pijltjes om in de gaten te vallen", 290,300,700,500)
+         text("UITLEG",575,50,200,200)
+         text("Gebruik de pijltjes om in de gaten te vallen", 300,300,700,500)
              text("Klik op enter om te starten",400,500,500,500)
              
              if (keyIsDown(ENTER)){
@@ -220,7 +219,6 @@ function draw() {
 
     case SPELEN:
 
-     
       beweegVijand();
       beweegKogel();
       beweegSpeler();
@@ -245,5 +243,18 @@ function draw() {
         spelStatus = GAMEOVER;
       }
       break;
+    case GAMEOVER:
+        textSize(30)
+        background("purple");
+        fill("white");
+        text("GAME OVER!", 420, 300, 500, 500)
+        text("Je score is:" + score, 420, 300, 500, 500)
+        text("Klik op enter om terug naar het uitlegscherm te gaan", 420, 500, 500, 500)
+
+        if (keyIsDown(ENTER)) {
+            spelStatus = UITLEG
+            score = 0
+        }
+        break;
   }
 }
